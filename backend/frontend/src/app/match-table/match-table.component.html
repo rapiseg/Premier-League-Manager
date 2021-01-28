@@ -1,0 +1,38 @@
+<h1 align="center">
+  Match Table
+</h1>
+
+<mat-form-field class="mat-form-field">
+  <!--  finding the matches by date-->
+  <input matInput  (keyup)="applyFilter($event)" placeholder="Search by Date">
+</mat-form-field>
+
+<cdk-virtual-scroll-viewport itemSize="100" class="container">
+  <mat-table [dataSource]="matchList" class="mat-elevation-z8">
+    <ng-container matColumnDef="date">
+      <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="home.name">
+      <mat-header-cell *matHeaderCellDef> Home </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.home.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="guest.name">
+      <mat-header-cell *matHeaderCellDef> Guest </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.guest.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="scoreInFormat">
+      <mat-header-cell *matHeaderCellDef> Score </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.scoreInFormat}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="headings; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: headings;"></mat-row>
+
+  </mat-table>
+</cdk-virtual-scroll-viewport>
+
+

@@ -1,0 +1,72 @@
+<h1 align="center">
+  League Table
+</h1>
+<br><br><br>
+<cdk-virtual-scroll-viewport itemSize="100" class="container">
+  <!--  set the data source -->
+  <mat-table [dataSource]="clubs" matSort class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
+      <mat-cell *matCellDef="let element index as x;"> {{x+1}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Club</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- number of matches Column -->
+    <ng-container matColumnDef="noOfMatchesPlayed">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Played </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.noOfMatchesPlayed}} </mat-cell>
+    </ng-container>
+
+    <!-- number of wins -->
+    <ng-container matColumnDef="win">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Won </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.win}} </mat-cell>
+    </ng-container>
+
+    <!-- number of draws columns  -->
+    <ng-container matColumnDef="draw">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Drawn </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.draw}} </mat-cell>
+    </ng-container>
+
+    <!-- number of defeats column  -->
+    <ng-container matColumnDef="defeat">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Lost </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.defeat}} </mat-cell>
+    </ng-container>
+
+    <!-- number of goals scored column-->
+    <ng-container matColumnDef="noOfGoalsScored">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> GF </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.noOfGoalsScored}} </mat-cell>
+    </ng-container>
+
+    <!-- number of goals received column  -->
+    <ng-container matColumnDef="noOfGoalsReceived">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> GA </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.noOfGoalsReceived}} </mat-cell>
+    </ng-container>
+
+    <!-- goal difference column-->
+    <ng-container matColumnDef="goalDifference">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> GD </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.goalDifference}} </mat-cell>
+    </ng-container>
+
+    <!-- points column-->
+    <ng-container matColumnDef="points">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Points </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.points}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="headings; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: headings;"></mat-row>
+  </mat-table>
+</cdk-virtual-scroll-viewport>

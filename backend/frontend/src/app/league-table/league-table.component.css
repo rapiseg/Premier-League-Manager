@@ -1,0 +1,11 @@
+h1{
+  color: whitesmoke;
+  padding-left: 100px;
+}
+
+th.mat-sort-header {
+  color: black;
+}
+.container{
+  height: 300px;
+}
